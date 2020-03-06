@@ -1,8 +1,6 @@
 from interator import Fibonacci
    
-obj_fib = Fibonacci()
+obj_fib = Fibonacci(max=50000000)
 
-next(obj_fib)
-
-#for i in obj_fib:
-    #print(obj_fib)  
+for i in obj_fib:
+    print(f"Sequencia :{i}")  

@@ -9,11 +9,13 @@ class Fibonacci:
         [Fibonacci] -- [Objeto Fibonacci]
     """    
     
-    def __ini__(self, max = 500000):
+    def __init__(self, max=500000):
         """[Constutor]
-        """        
+        """
+        #incializa os dois primeiros números        
         self.current_elemet = 0
         self.next_element = 1
+        
         self.max = max
         
     def __iter__(self):
@@ -35,10 +37,9 @@ class Fibonacci:
         #valor de retorno
         return_value = self.current_elemet
         
-        self.current_elemet = self.next_element
-        self.next_element = self.current_elemet + self.next_element
+        self.current_elemet,self.next_element = self.next_element, self.current_elemet + self.next_element
         
         return return_value
-    
+
  
     
