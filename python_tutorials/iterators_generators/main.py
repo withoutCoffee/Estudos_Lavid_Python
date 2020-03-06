@@ -1,4 +1,4 @@
-from interator import Fibonacci
+from iterator import Fibonacci
    
 obj_fib = Fibonacci(max=50000000)
 
