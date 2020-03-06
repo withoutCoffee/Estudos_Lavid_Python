@@ -13,6 +13,7 @@ def rename(path, sep):
         [list] -- [last names]
     """
     
+    # Altera o diretório de trabalho atual para o caminho especificado
     os.chdir(path)
     
     new_names = []
