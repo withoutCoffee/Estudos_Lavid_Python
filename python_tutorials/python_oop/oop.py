@@ -22,7 +22,7 @@ class Employee:
         self.first = first
         self.last = last
         self.pay = pay
-        self.email = first +'.'+ last + 'company.com'
+        self.email = first +'.'+ last + '@company.com'
         
         Employee.number_employees += 1
 
@@ -60,7 +60,7 @@ class Employee:
         first, last, pay = string.split('-')
         return cls(first,last,pay)
     
-    # Decorator paraTornando em um método stático
+    # Decorator para em um método stático
     @staticmethod
     def is_workday(day):
         """[Este método verifica se um dia trabalho]
@@ -76,7 +76,7 @@ class Employee:
             return False
         return True
 # Testes
-# Instanciando 2 objetos da classe funcionários
+# Instanciando 3 objetos da classe funcionários
 emp1 = Employee('jonas','oliveira',10000)
 emp2 = Employee('jorge','oliveira',44444)
 emp3 = Employee('ana','oliveira',123123)
