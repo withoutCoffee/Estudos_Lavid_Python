@@ -31,10 +31,23 @@ class Employee:
         """        
         self.pay  = self.pay * self.raise_amount
     
-        # Métodos mágicos, onde com o mesmos podemos fazer sobrecaga de operadores
-        # como por exemplo, +,-,*,/, respestivamento para os método:
-        # __add__, __sub__, __mul__, __div__
-
+    # Métodos mágicos, onde com o mesmos podemos fazer sobrecaga de operadores
+    # como por exemplo, +,-,*,/, respestivamento para os método:
+    # __add__, __sub__, __mul__, __div__
+    def __repr__(self):
+        """[Representão do objeto como uma string]
+        """   
+        return "<Instância {}; Endereço:{}>".format(self.__class__.__name__,id(self)) 
+    
+    def __str__(self):
+        """[Representão do objeto como uma string, mas é exeutado quando utilizado a função print]
+        """        
+        return "Employee: ({}, {}, {})".format(self.first,self.last,self.pay)
+                
+    def __add__(self, other):
+        return self.pay + other.pay
+    
+    
 # Herança da classe Employee, a classe Developer herda os atributos e métodos da classe Employee 
 class Developer(Employee):
     
