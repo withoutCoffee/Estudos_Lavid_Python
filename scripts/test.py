@@ -11,7 +11,7 @@ if __name__== "__main__":
         if not re.search('DUP|\.txt',name):
             
             path = f'{folder}/{name}'
-            for number_of_concat in range(1,6,1):
+            for number_of_concat in range(1,2,1):
                 LengthenSentence(csv_path = f'{folder}/{name}',
                                 number_concat = number_of_concat,
                                 random_seed = 2,
