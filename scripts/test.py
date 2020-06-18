@@ -8,7 +8,7 @@ if __name__== "__main__":
     af = f'{folder}/.'
     
     for name in os.listdir(af):
-        if not re.search('DUP|\.txt',name):
+        if re.search('\.csv',name):#re.search('DUP|\.txt',name):
             
             path = f'{folder}/{name}'
             for number_of_concat in range(1,2,1):
