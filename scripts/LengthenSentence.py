@@ -2,6 +2,7 @@ import csv
 import pandas as pd
 import re
 import random
+import os
 
 class LengthenSentence:
     """Creates long phrases by concatentating internal phrases"""
@@ -13,10 +14,19 @@ class LengthenSentence:
         try:
             self._number_concat = kwargs.get('number_concat')
             self._csv = kwargs.get('csv_path')
+            self._file_name = kwargs.get('file_name')
             self._fd = open(self._csv, 'r', encoding='utf-8')
+            
             self._reader = pd.read_csv(self._fd,header=None)
             self._reader_size = len(self._reader) - 1
-            self._writer = open(f'concat_x{self._number_concat}.csv','w',encoding='utf-8')
+
+            folder = f'data_x{self._number_concat}'
+            
+            if folder not in os.listdir(path='.'):  
+                r = os.mkdir(folder)
+            
+            self._writer = open(f'{folder}/CONCAT_X{self._number_concat}_{self._file_name}','w',encoding='utf-8')
+    
             random.seed(kwargs.get('random_seed'))
 
         except KeyError:
@@ -59,7 +69,7 @@ class LengthenSentence:
         if GR:
             return re.sub(self._match_GR,' ',GR)
         elif GI:
-            return re.sub(self._match_GI,' ',GI)
+            return re.sub(self._match_GI,'',GI)
     
     def __del__(self):
         if self._fd or self._writer:
@@ -67,6 +77,5 @@ class LengthenSentence:
             self._writer.close()
 
 if __name__== "__main__":
-    ls = LengthenSentence(csv_path = 'raw.csv',number_concat=1,random_seed=0);
-    ls.process()
+    ls = LengthenSentence(csv_path = 'raw.csv',number_concat=1,random_seed=0).process()
     
